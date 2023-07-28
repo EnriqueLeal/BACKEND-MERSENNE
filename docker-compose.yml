@@ -1,0 +1,32 @@
+version: '3.4'
+networks:
+    backend: 
+  
+services:
+  quizapi:
+    container_name: quiz-db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Enrique123
+    networks:
+      - backend
+    ports:
+      - 18001:1433
+
+
+  customerwebapi:
+    container_name: quiz-db
+    image: ${DOCKER_REGISTRY-}customerwebapi
+    build:
+        context: .
+        dockerfile: CustomerWebApi/Dockerfile
+    networks:
+        - backend
+    environment:
+        - DB_HOST=StudentDB
+        - DB_NAME=sa
+        - DB_SA_PASSWORD=Enrique123
+
+
+

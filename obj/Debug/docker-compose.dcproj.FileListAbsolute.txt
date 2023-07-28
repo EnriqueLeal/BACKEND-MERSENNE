@@ -1,0 +1,2 @@
+F:\PRUEBA\Quiz-App-with-React-Asp.Net-Core-API-Material-UI-main\QuizAPI\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+C:\Proyectos\QuizAPI-master\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache

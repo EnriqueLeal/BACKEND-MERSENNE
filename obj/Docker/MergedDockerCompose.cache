@@ -1,0 +1,34 @@
+name: dockercompose120011148663079308
+services:
+  customerwebapi:
+    build:
+      context: C:\Proyectos\QuizAPI-master
+      dockerfile: CustomerWebApi/Dockerfile
+    container_name: quiz-db
+    environment:
+      DB_HOST: StudentDB
+      DB_NAME: sa
+      DB_SA_PASSWORD: Enrique123
+    image: customerwebapi
+    networks:
+      backend: null
+  quizapi:
+    container_name: quiz-db
+    environment:
+      ACCEPT_EULA: "Y"
+      ASPNETCORE_ENVIRONMENT: Development
+      SA_PASSWORD: Enrique123
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    networks:
+      backend: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 1433
+      published: "18001"
+      protocol: tcp
+networks:
+  backend:
+    name: dockercompose120011148663079308_backend
