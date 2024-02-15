@@ -10,6 +10,7 @@ namespace API.Models
         { }
 
         public DbSet<Participant> Participants { get; set; }
+        public DbSet<Users> Users { get; set; }
         public DbSet<Mersenne> Mersenne { get; set; }
     }
 }
