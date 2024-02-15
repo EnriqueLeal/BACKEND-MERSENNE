@@ -1,24 +1,53 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using API.Models;
+using AutoMapper;
+using System;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+// Agregar servicios al contenedor.
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// Obtener más información sobre cómo configurar Swagger/OpenAPI en https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Configurar AutoMapper
+builder.Services.AddAutoMapper(typeof(Program));
 
-//var dbHost = Environment.GetEnvironmentVariable("DB_HOST");
-//var dbName = Environment.GetEnvironmentVariable("DB_NAME");
-//var dbPassword = Environment.GetEnvironmentVariable("DB_SA_PASSWORD");
-//var connectionString = $"Data Source={dbHost};Initial Catalog={dbName};User ID=sa;Password={dbPassword}";
-//builder.Services.AddDbContext<QuizDbContext>(opt => opt.UseSqlServer(connectionString));
+// Generar una clave aleatoria
+var key = new byte[32]; // 256 bits
+using (var rng = RandomNumberGenerator.Create())
+{
+    rng.GetBytes(key);
+}
+
+// Codificar la clave en base64
+var base64Key = Convert.ToBase64String(key);
+
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        .AddJwtBearer(options =>
+        {
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                ValidAudience = builder.Configuration["Jwt:Audience"],
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"]))
+            };
+        });
 
 builder.Services.AddDbContext<QuizDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection")));
@@ -26,14 +55,9 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection"))
 var app = builder.Build();
 
 app.UseCors(options =>
-options.WithOrigins("http://localhost:3000")
-.AllowAnyMethod()
-.AllowAnyHeader());
-
-app.UseCors(options =>
-options.WithOrigins("http://localhost:5041")
-.AllowAnyMethod()
-.AllowAnyHeader());
+    options.WithOrigins(builder.Configuration["MySettingFront"], builder.Configuration["MySettingBack"])
+           .AllowAnyMethod()
+           .AllowAnyHeader());
 
 app.UseStaticFiles(new StaticFileOptions
 {
@@ -42,7 +66,7 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = "/Images"
 });
 
-// Configure the HTTP request pipeline.
+// Configurar el pipeline de solicitudes HTTP.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
