@@ -61,7 +61,7 @@ builder.Services.AddAuthentication(options =>
 })
 .AddJwtBearer(options =>
 {
-    options.RequireHttpsMetadata = false; // Para pruebas, cámbialo a true en producción
+    options.RequireHttpsMetadata = false; // Para pruebas, cï¿½mbialo a true en producciï¿½n
     options.SaveToken = true;
     options.TokenValidationParameters = new TokenValidationParameters
     {
@@ -73,16 +73,18 @@ builder.Services.AddAuthentication(options =>
 });
 // Agregar servicios al contenedor.
 builder.Services.AddControllers();
-    // Obtener más información sobre cómo configurar Swagger/OpenAPI en https://aka.ms/aspnetcore/swashbuckle
+    // Obtener mï¿½s informaciï¿½n sobre cï¿½mo configurar Swagger/OpenAPI en https://aka.ms/aspnetcore/swashbuckle
     builder.Services.AddEndpointsApiExplorer();
 
     // Configurar Swagger
     builder.Services.AddSwaggerGen(c =>
     {
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
-        c.OperationFilter<AddAuthorizationHeaderParameterOperationFilter>(); // Agregar el filtro de operación personalizado aquí
+        c.OperationFilter<AddAuthorizationHeaderParameterOperationFilter>(); // Agregar el filtro de operaciï¿½n personalizado aquï¿½
     });
 
+// Configurar AutoMapper
+builder.Services.AddAutoMapper(typeof(Program));
 
 
 // Configurar AutoMapper
