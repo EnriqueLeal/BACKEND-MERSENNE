@@ -3,24 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{13F332F2-1F52-412C-A93B-E2DB33FB5FAF}|QuizAPI\\API.csproj|c:\\users\\enrique\\source\\repos\\backend-mersenne\\quizapi\\migrations\\20240307044211_migrateproperties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13F332F2-1F52-412C-A93B-E2DB33FB5FAF}|QuizAPI\\API.csproj|solutionrelative:quizapi\\migrations\\20240307044211_migrateproperties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13F332F2-1F52-412C-A93B-E2DB33FB5FAF}|QuizAPI\\API.csproj|c:\\users\\enrique\\source\\repos\\backend-mersenne\\quizapi\\controllers\\propertiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13F332F2-1F52-412C-A93B-E2DB33FB5FAF}|QuizAPI\\API.csproj|solutionrelative:quizapi\\controllers\\propertiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13F332F2-1F52-412C-A93B-E2DB33FB5FAF}|QuizAPI\\API.csproj|c:\\users\\enrique\\source\\repos\\backend-mersenne\\quizapi\\models\\quizdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13F332F2-1F52-412C-A93B-E2DB33FB5FAF}|QuizAPI\\API.csproj|solutionrelative:quizapi\\models\\quizdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{13F332F2-1F52-412C-A93B-E2DB33FB5FAF}|QuizAPI\\API.csproj|c:\\users\\enrique\\source\\repos\\backend-mersenne\\quizapi\\models\\participant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13F332F2-1F52-412C-A93B-E2DB33FB5FAF}|QuizAPI\\API.csproj|solutionrelative:quizapi\\models\\participant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13F332F2-1F52-412C-A93B-E2DB33FB5FAF}|QuizAPI\\API.csproj|c:\\users\\enrique\\source\\repos\\backend-mersenne\\quizapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13F332F2-1F52-412C-A93B-E2DB33FB5FAF}|QuizAPI\\API.csproj|solutionrelative:quizapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{13F332F2-1F52-412C-A93B-E2DB33FB5FAF}|QuizAPI\\API.csproj|c:\\users\\enrique\\source\\repos\\backend-mersenne\\quizapi\\controllers\\propertiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13F332F2-1F52-412C-A93B-E2DB33FB5FAF}|QuizAPI\\API.csproj|solutionrelative:quizapi\\controllers\\propertiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{13F332F2-1F52-412C-A93B-E2DB33FB5FAF}|QuizAPI\\API.csproj|c:\\users\\enrique\\source\\repos\\backend-mersenne\\quizapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,10 +27,6 @@
       "RelativeMoniker": "D:0:0:{13F332F2-1F52-412C-A93B-E2DB33FB5FAF}|QuizAPI\\API.csproj|solutionrelative:quizapi\\controllers\\jwtcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13F332F2-1F52-412C-A93B-E2DB33FB5FAF}|QuizAPI\\API.csproj|c:\\users\\enrique\\source\\repos\\backend-mersenne\\quizapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{13F332F2-1F52-412C-A93B-E2DB33FB5FAF}|QuizAPI\\API.csproj|solutionrelative:quizapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{13F332F2-1F52-412C-A93B-E2DB33FB5FAF}|QuizAPI\\API.csproj|c:\\users\\enrique\\source\\repos\\backend-mersenne\\quizapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{13F332F2-1F52-412C-A93B-E2DB33FB5FAF}|QuizAPI\\API.csproj|solutionrelative:quizapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -54,14 +38,8 @@
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Enrique\\AppData\\Local\\Temp\\fxpdvcwg..sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Enrique\\AppData\\Local\\Temp\\4ppu0owj..sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{13F332F2-1F52-412C-A93B-E2DB33FB5FAF}|QuizAPI\\API.csproj|c:\\users\\enrique\\source\\repos\\backend-mersenne\\quizapi\\api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{13F332F2-1F52-412C-A93B-E2DB33FB5FAF}|QuizAPI\\API.csproj|solutionrelative:quizapi\\api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Enrique\\AppData\\Local\\Temp\\4ppu0owj..sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Enrique\\AppData\\Local\\Temp\\fxpdvcwg..sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
@@ -77,34 +55,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 23,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\Program.cs",
-              "RelativeDocumentMoniker": "QuizAPI\\Program.cs",
-              "ToolTip": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\Program.cs",
-              "RelativeToolTip": "QuizAPI\\Program.cs",
-              "ViewState": "AQIAAF4AAAAAAAAAAAAAAIgAAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T05:50:17.283Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20240307044211_MigrateProperties.cs",
-              "DocumentMoniker": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\Migrations\\20240307044211_MigrateProperties.cs",
-              "RelativeDocumentMoniker": "QuizAPI\\Migrations\\20240307044211_MigrateProperties.cs",
-              "ToolTip": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\Migrations\\20240307044211_MigrateProperties.cs",
-              "RelativeToolTip": "QuizAPI\\Migrations\\20240307044211_MigrateProperties.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-07T04:42:11.81Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Bookmark",
@@ -188,33 +151,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Participant.cs",
               "DocumentMoniker": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\Models\\Participant.cs",
               "RelativeDocumentMoniker": "QuizAPI\\Models\\Participant.cs",
               "ToolTip": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\Models\\Participant.cs",
               "RelativeToolTip": "QuizAPI\\Models\\Participant.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAcAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-07T04:37:24.213Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "QuizDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\Models\\QuizDbContext.cs",
-              "RelativeDocumentMoniker": "QuizAPI\\Models\\QuizDbContext.cs",
-              "ToolTip": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\Models\\QuizDbContext.cs",
-              "RelativeToolTip": "QuizAPI\\Models\\QuizDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-07T04:36:35.486Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "Users.cs",
               "DocumentMoniker": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\Models\\Users.cs",
               "RelativeDocumentMoniker": "QuizAPI\\Models\\Users.cs",
@@ -227,7 +177,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "Properties.cs",
               "DocumentMoniker": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\Models\\Properties.cs",
               "RelativeDocumentMoniker": "QuizAPI\\Models\\Properties.cs",
@@ -240,12 +190,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 9,
               "Title": "API.csproj",
               "DocumentMoniker": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\API.csproj",
               "RelativeDocumentMoniker": "QuizAPI\\API.csproj",
-              "ToolTip": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\API.csproj",
-              "RelativeToolTip": "QuizAPI\\API.csproj",
+              "ToolTip": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\API.csproj*",
+              "RelativeToolTip": "QuizAPI\\API.csproj*",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2024-03-07T03:18:56.343Z",
@@ -253,26 +203,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 7,
               "Title": "JWT.cs",
               "DocumentMoniker": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\DataAccess\\Servicios\\JWT.cs",
               "RelativeDocumentMoniker": "QuizAPI\\DataAccess\\Servicios\\JWT.cs",
               "ToolTip": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\DataAccess\\Servicios\\JWT.cs",
               "RelativeToolTip": "QuizAPI\\DataAccess\\Servicios\\JWT.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAACMAAAAsAAAA",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAAACgAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-07T03:06:17.335Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "QuizAPI\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\Controllers\\UserController.cs",
               "RelativeToolTip": "QuizAPI\\Controllers\\UserController.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAUwBUAAAAmAAAA",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAUwBgAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-17T21:59:52.219Z",
               "EditorCaption": ""
@@ -292,44 +242,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "SQLQuery1.sql ",
-              "DocumentMoniker": "C:\\Users\\Enrique\\AppData\\Local\\Temp\\4ppu0owj..sql",
-              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\4ppu0owj..sql",
-              "ToolTip": "SQLQuery1.sql ",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-03-07T03:31:33.034Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "QuizAPI\\appsettings.Development.json",
-              "ToolTip": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\appsettings.Development.json",
-              "RelativeToolTip": "QuizAPI\\appsettings.Development.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-03-07T03:31:58.939Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
               "Title": "JWTController.cs",
               "DocumentMoniker": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\Controllers\\JWTController.cs",
               "RelativeDocumentMoniker": "QuizAPI\\Controllers\\JWTController.cs",
               "ToolTip": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\Controllers\\JWTController.cs",
               "RelativeToolTip": "QuizAPI\\Controllers\\JWTController.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAAABgAAAASAAAA",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAACAAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-15T05:52:13.01Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 6,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Enrique\\source\\repos\\BACKEND-MERSENNE\\QuizAPI\\appsettings.json",
               "RelativeDocumentMoniker": "QuizAPI\\appsettings.json",
@@ -342,7 +268,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 8,
               "Title": "SQLQuery2.sql ",
               "DocumentMoniker": "C:\\Users\\Enrique\\AppData\\Local\\Temp\\fxpdvcwg..sql",
               "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\fxpdvcwg..sql",
