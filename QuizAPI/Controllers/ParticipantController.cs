@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using API.Models;
+using Microsoft.Extensions.Logging;
+using AutoMapper;
+
 
 namespace QuizAPI.Controllers
 {
@@ -16,31 +19,85 @@ namespace QuizAPI.Controllers
     public class ParticipantController : ControllerBase
     {
         private readonly QuizDbContext _context;
+        private readonly ILogger<ParticipantController> _logger;
+        private readonly IMapper _mapper; // Agrega una referencia a IMapper
 
-        public ParticipantController(QuizDbContext context)
+
+        public ParticipantController(QuizDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        // GET: api/Participant
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Participant>>> GetParticipants()
+        public async Task<ActionResult<IEnumerable<Participant>>> GetParticipants([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
-            return await _context.Participants.ToListAsync();
+            try
+            {
+                // Validar la paginación
+                if (pageNumber <= 0 || pageSize <= 0)
+                {
+                    return BadRequest("El número de página y el tamaño de la página deben ser números positivos.");
+                }
+
+                // Calcular el índice inicial de los elementos a recuperar
+                int startIndex = (pageNumber - 1) * pageSize;
+
+                // Obtener los participantes de la base de datos paginados
+                var participants = await _context.Participants
+                    .Skip(startIndex)
+                    .Take(pageSize)
+                    .ToListAsync();
+
+                // Mapear las entidades de los participantes a DTOs
+                var participantDTOs = _mapper.Map<IEnumerable<Participant>>(participants);
+
+                // Devolver los DTOs de los participantes
+                return Ok(participantDTOs);
+            }
+            catch (Exception ex)
+            {
+                // Registrar cualquier error inesperado
+                _logger.LogError($"Error al intentar obtener los participantes: {ex.Message}");
+                return StatusCode(500, "Se ha producido un error interno al intentar obtener los participantes.");
+            }
         }
 
-        // GET: api/Participant/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Participant>> GetParticipant(int id)
         {
-            var participant = await _context.Participants.FindAsync(id);
-
-            if (participant == null)
+            try
             {
-                return NotFound();
-            }
+                // Validar la entrada
+                if (id <= 0)
+                {
+                    return BadRequest("El ID del participante debe ser un número positivo.");
+                }
 
-            return participant;
+                // Buscar el participante en la base de datos
+                var participant = await _context.Participants.FindAsync(id);
+
+                // Verificar si se encontró el participante
+                if (participant == null)
+                {
+                    return NotFound("No se encontró el participante con el ID proporcionado.");
+                }
+
+                // Mapear la entidad del participante a un DTO
+                var participantDTO = _mapper.Map<Participant>(participant);
+
+                // Registrar la consulta exitosa
+                _logger.LogInformation($"Se ha consultado el participante con ID {id}.");
+
+                // Devolver el DTO del participante
+                return Ok(participantDTO);
+            }
+            catch (Exception ex)
+            {
+                // Registrar cualquier error inesperado
+                _logger.LogError($"Error al intentar obtener el participante con ID {id}: {ex.Message}");
+                return StatusCode(500, "Se ha producido un error interno al intentar obtener el participante.");
+            }
         }
 
         // PUT: api/Participant/5
