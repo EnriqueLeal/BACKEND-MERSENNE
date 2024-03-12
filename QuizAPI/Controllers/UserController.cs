@@ -11,7 +11,8 @@ using Microsoft.Extensions.Logging;
 using AutoMapper;
 using QuizAPI.Controllers;
 using Microsoft.AspNetCore.Authorization;
-    
+using API.DataAccess.Interfaces;
+
 
 namespace API.Controllers
 {
@@ -19,58 +20,29 @@ namespace API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly QuizDbContext _context;
-        private readonly ILogger<ParticipantController> _logger;
-        private readonly IMapper _mapper; // Agrega una referencia a IMapper
+        private readonly IUserRepository _userRepository;
 
-        public UserController(QuizDbContext context, IMapper mapper)
+        public UserController(IUserRepository userRepository)
         {
-            _context = context;
-            _mapper = mapper;
+            _userRepository = userRepository;
         }
-
 
         // GET: api/Users
         [Authorize]
         [HttpGet]
-        //[SwaggerOperation(Summary = "Get something")]
-        //[SwaggerResponse(200, "Success")]
-        //[SwaggerRequestHeader("X-Custom-Header", Required = true, Description = "Custom header description")]
         public async Task<ActionResult<IEnumerable<Users>>> GetUsers([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
             try
             {
-
-                var username = User.Identity.Name;
-                // Validar la paginación
-                if (pageNumber <= 0 || pageSize <= 0)
-                {
-                    return BadRequest("El número de página y el tamaño de la página deben ser números positivos.");
-                }
-
-                // Calcular el índice inicial de los elementos a recuperar
-                int startIndex = (pageNumber - 1) * pageSize;
-
-                // Obtener los participantes de la base de datos paginados
-                var Users = await _context.Users
-                    .Skip(startIndex)
-                    .Take(pageSize)
-                    .ToListAsync();
-
-                // Mapear las entidades de los participantes a DTOs
-                var UersResponse = _mapper.Map<IEnumerable<Users>>(Users);
-
-                // Devolver los DTOs de los Users
-                return Ok(UersResponse);
+                var users = await _userRepository.GetUsersAsync(pageNumber, pageSize);
+                return Ok(users);
             }
             catch (Exception ex)
             {
-                // Registrar cualquier error inesperado
-                _logger.LogError($"Error al intentar obtener los Users: {ex.Message}");
-                return StatusCode(500, "Se ha producido un error interno al intentar obtener los Users.");
+                // Manejar errores
+                return BadRequest(ex.Message);
             }
         }
-
 
         // POST: api/Users
         [HttpPost]
@@ -79,26 +51,13 @@ namespace API.Controllers
         {
             try
             {
-                // Verificar si el usuario ya existe
-                var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Username == user.Username);
-                if (existingUser != null)
-                {
-                    return Conflict("El nombre de usuario ya está en uso.");
-                }
-
-                // Agregar el usuario al contexto
-                _context.Users.Add(user);
-
-                // Guardar los cambios en la base de datos
-                await _context.SaveChangesAsync();
-
-                // Devolver el usuario recién creado con el código de estado 201 Created
+                await _userRepository.CreateUserAsync(user);
                 return CreatedAtAction(nameof(GetUser), new { id = user.UserID }, user);
             }
             catch (Exception ex)
             {
-                // Manejar cualquier error y devolver un código de estado 500 Internal Server Error
-                return StatusCode(500, $"Se produjo un error al intentar crear el usuario: {ex.Message}");
+                // Manejar errores
+                return BadRequest(ex.Message);
             }
         }
 
@@ -107,14 +66,21 @@ namespace API.Controllers
         [Authorize]
         public async Task<ActionResult<Users>> GetUser(int id)
         {
-            var user = await _context.Users.FindAsync(id);
-
-            if (user == null)
+            try
             {
-                return NotFound("Usuario no encontrado.");
+                var user = await _userRepository.GetUserAsync(id);
+                if (user == null)
+                {
+                    return NotFound("Usuario no encontrado.");
+                }
+                return user;
             }
-
-            return user;
+            catch (Exception ex)
+            {
+                // Manejar errores
+                return BadRequest(ex.Message);
+            }
         }
     }
+
 }

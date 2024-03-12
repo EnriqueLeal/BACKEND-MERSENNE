@@ -8,6 +8,7 @@ using API.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using AutoMapper;
+using API.DataAccess.Interfaces;
 
 namespace API.Controllers
 {
@@ -15,28 +16,26 @@ namespace API.Controllers
     [ApiController]
     public class PropertiesController : ControllerBase
     {
-        private readonly QuizDbContext _context;
-        private readonly IMapper _mapper;
+        private readonly IPropertyRepository _propertyRepository;
 
-        public PropertiesController(QuizDbContext context, IMapper mapper)
+        public PropertiesController(IPropertyRepository propertyRepository)
         {
-            _context = context;
-            _mapper = mapper;
+            _propertyRepository = propertyRepository;
         }
 
         // GET: api/Properties
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Properties>>> GetProperties()
         {
-            return await _context.Properties.ToListAsync();
+            var properties = await _propertyRepository.GetPropertiesAsync();
+            return Ok(properties);
         }
 
         // GET: api/Properties/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Properties>> GetProperty(int id)
         {
-            var property = await _context.Properties.FindAsync(id);
-
+            var property = await _propertyRepository.GetPropertyAsync(id);
             if (property == null)
             {
                 return NotFound();
@@ -50,13 +49,7 @@ namespace API.Controllers
         [Authorize]
         public async Task<ActionResult<Properties>> PostProperty(Properties property)
         {
-            // Your logic here to associate the property with the authenticated user
-            // For example, you can get the authenticated user's ID from the claims
-            // and set it to the property's UserID property
-
-            _context.Properties.Add(property);
-            await _context.SaveChangesAsync();
-
+            await _propertyRepository.CreatePropertyAsync(property);
             return CreatedAtAction(nameof(GetProperty), new { id = property.PropertyID }, property);
         }
 
@@ -65,30 +58,19 @@ namespace API.Controllers
         [Authorize]
         public async Task<IActionResult> PutProperty(int id, Properties property)
         {
-            if (id != property.PropertyID)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(property).State = EntityState.Modified;
-
             try
             {
-                await _context.SaveChangesAsync();
+                await _propertyRepository.UpdatePropertyAsync(id, property);
+                return NoContent();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (ArgumentException)
             {
-                if (!PropertyExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return BadRequest("ID mismatch");
             }
-
-            return NoContent();
+            catch (KeyNotFoundException)
+            {
+                return NotFound("Property not found");
+            }
         }
 
         // DELETE: api/Properties/5
@@ -96,21 +78,16 @@ namespace API.Controllers
         [Authorize]
         public async Task<IActionResult> DeleteProperty(int id)
         {
-            var property = await _context.Properties.FindAsync(id);
-            if (property == null)
+            try
             {
-                return NotFound();
+                await _propertyRepository.DeletePropertyAsync(id);
+                return NoContent();
             }
-
-            _context.Properties.Remove(property);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        private bool PropertyExists(int id)
-        {
-            return _context.Properties.Any(e => e.PropertyID == id);
+            catch (KeyNotFoundException)
+            {
+                return NotFound("Property not found");
+            }
         }
     }
+
 }
